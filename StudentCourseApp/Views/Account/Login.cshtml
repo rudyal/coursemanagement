@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("Email", null, new { placeholder = "Email" })
+    @Html.Password("Password", null, new { placecholder = "Password" }) <br />
+    <input type="submit" value="Log in" />
+}

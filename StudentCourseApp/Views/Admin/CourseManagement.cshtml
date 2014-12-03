@@ -1,0 +1,69 @@
+﻿@model IEnumerable<StudentCourseApp.Models.Course>
+
+@{
+    ViewBag.Title = "CourseManagement";
+}
+
+<h2>CourseManagement</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CourseCreate", "Admin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingDates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Occupancy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetingDates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetingTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Occupancy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
+        </td>
+    </tr>
+}
+
+</table>

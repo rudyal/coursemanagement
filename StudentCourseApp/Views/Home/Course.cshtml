@@ -1,0 +1,69 @@
+﻿@model IList<StudentCourseApp.Models.ViewModels.CourseViewModel>
+
+@{
+    ViewBag.Title = "Course";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<h2>Course</h2>
+
+@using (Html.BeginForm())
+{
+
+    <table>
+        <tr>
+            <th>
+                Add
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Teacher Name
+            </th>
+            <th>
+                Meeting Dates
+            </th>
+            <th>
+                Meeting Time
+            </th>
+            <th>
+                Occupancy
+            </th>
+            <th>
+                Location
+            </th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(modelItem => Model[i].IsSelected)
+                    @Html.HiddenFor(modelItem => Model[i].CourseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].MeetingDates)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].MeetingTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].Occupancy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].Location)
+                </td>
+            </tr>
+        }
+    </table>
+        <button type="submit">Submit Changes</button>
+}
+
